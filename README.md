@@ -18,14 +18,14 @@ For example: `KEYS_FOO_BAR` will be converted to `/foo/bar`
 docker run -e "ETCD_URL=http://etcd:2378" \
 -e "KEYS_FOO_BAR=something" \
 -e "KEYS_FOO_NOTBAR=nothing" \
-norbertdalecker/etcd-setup:0.1.0 
+norbertdalecker/etcd-setup:0.1.1 
 
 ```
 
 
 # Roadmap
 
-0.1.0 - Use env. variables
+0.1.x - Use env. variables and fix connection errors
 
 0.2.0 - Use yml input files
 
