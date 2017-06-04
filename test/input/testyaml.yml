@@ -1,0 +1,4 @@
+somedir:
+  subdir:
+    property: value1
+    property2: value2

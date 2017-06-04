@@ -1,0 +1,15 @@
+{
+    "anotherdirectory": {
+        "anothersubdir": {
+            "property2": "value3", 
+            "property": "value4"
+        }
+    },
+    
+    "somedir": {
+        "subdir": {
+            "property2": "this_will_be_overrided", 
+            "foo": "bar"
+        }
+    }
+}
