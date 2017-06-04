@@ -1,0 +1,28 @@
+etcd0:
+  net: "test"
+  image: quay.io/coreos/etcd:v2.3.7
+  container_name: etcd0
+  command: "-name etcd0 -advertise-client-urls http://etcd0:4001,http://0.0.0.0:2378,http://0.0.0.0:4001
+    -listen-client-urls http://0.0.0.0:2378,http://0.0.0.0:4001 -initial-advertise-peer-urls
+    http://0.0.0.0:2380 -listen-peer-urls http://0.0.0.0:2380 -initial-cluster-token
+    etcd-cluster-1 -initial-cluster etcd0=http://0.0.0.0:2380 -initial-cluster-state
+    new"
+  ports:
+  - 127.0.0.1:4001:4001
+  - 127.0.0.1:2380:2380
+  - 127.0.0.1:2378:2378
+  expose:
+  - 2378
+  - 4001
+  - 2380
+
+etcd-setup:
+  container_name: etcd-setup
+  net: "test"
+  volumes:
+  - "./input:/testfiles"
+  command: "/docker-entrypoint.sh /testfiles"
+  environment:
+  - KEYS_FOO_BAR=something
+  - ETCD_URL=http://etcd0:2378
+  image: norbertdalecker/etcd-setup:latest
