@@ -43,7 +43,7 @@ function parseYml {
 
 function parseJson {
    for var in $(cat $1 | jsonpipe | grep -v "null" | grep -v "{}" | grep -v "\[\]" | sed 's/"//g' | sed "s/\s/=/g"); do
-     splitAndStoreVariable "keys/$var";
+     splitAndStoreVariable "keys$var";
    done
 }
 
